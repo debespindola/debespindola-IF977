@@ -1,0 +1,15 @@
+.App {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: #282a36;
+}
+
+.cardWrapper {
+  display: grid;
+  width: 100%;
+  padding: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto-fill, 300px);
+  grid-gap: 15px;
+}
