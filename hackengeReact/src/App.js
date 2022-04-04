@@ -18,48 +18,8 @@ const pokemonData = [
     name: 'pikachu',
     type: 'eletrico',
     hp: 10,
-    attacks: [
-      {
-        name: 'raios e raios',
-        cost: 25
-      },
-      {
-        name: 'trovão',
-        cost: 40
-      }
-    ]
-  },
-  {
-    id: Math.random(),
-    name: 'pikachu',
-    type: 'eletrico',
-    hp: 10,
-    attacks: [
-      {
-        name: 'raios e raios',
-        cost: 25
-      },
-      {
-        name: 'trovão',
-        cost: 40
-      }
-    ]
-  },
-  {
-    id: Math.random(),
-    name: 'pikachu',
-    type: 'eletrico',
-    hp: 10,
-    attacks: [
-      {
-        name: 'raios e raios',
-        cost: 25
-      },
-      {
-        name: 'trovão',
-        cost: 40
-      }
-    ]
+    attack:  'raios e raios',
+    cost: 25,
   },
 ]
 

@@ -1,9 +1,3 @@
-.attackInput {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 5px;
-}
-
 .input {
   margin: 5px 0;
 }

@@ -20,4 +20,12 @@ export const modalReducer = (state, action) => {
 
 export const modalInitialValue = {
   active: false,
+  pokemonSelected: {
+    id: '',
+    name: '',
+    type: '',
+    hp: null,
+    attack: '',
+    cost: null,
+  }
 };

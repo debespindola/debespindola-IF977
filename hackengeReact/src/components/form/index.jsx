@@ -22,12 +22,13 @@ function Form() {
       value: '',
     },
     {
-      name: 'Ataques',
-      value: [{
-        name: '',
-        cost: ''
-      }],
-    }
+      name: 'Ataque',
+      value: ''
+    },
+    {
+      name: 'Custo',
+      value: ''
+    },
   ]
 
   const [fields, setFields] = useState(emptyState);
@@ -47,11 +48,16 @@ function Form() {
         value: showModal.pokemonSelected?.hp,
       },
       {
-        name: 'Ataques',
-        value: showModal.pokemonSelected?.attacks,
+        name: 'Ataque',
+        value: showModal.pokemonSelected?.attack,
+      },
+      {
+        name: 'Dano',
+        value: showModal.pokemonSelected?.cost,
       },
     ])
   }, [showModal.pokemonSelected]);
+
 
   return (
     <Modal 
@@ -63,18 +69,16 @@ function Form() {
       }}
       onOk={() => {
         showModalDispatch({ type: 'HIDE' });
-        setFields(emptyState)
+        setFields(emptyState);
       }}
     >
       {fields?.map((field) => (
-        field?.name !==  'Ataques'
-          ? <Input addonBefore={field.name} className='input' defaultValue={field?.value} />
-          : field.value.map((attack) => (
-            <div className='attackInput'>
-              <Input addonBefore='Ataque' className='input' defaultValue={attack.name} />
-              <Input addonBefore='Dano' className='input' defaultValue={attack.cost} />
-            </div>
-          ))
+        <Input 
+          addonBefore={field.name} 
+          className='input' 
+          defaultValue={field?.value}
+          required
+        />
       ))}
     </Modal>
   )
