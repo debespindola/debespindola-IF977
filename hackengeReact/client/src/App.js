@@ -1,4 +1,6 @@
-import { useReducer } from 'react';
+import { useEffect, useReducer, useState } from 'react';
+import axios from 'axios';
+
 import { 
   ModalContext,
   modalInitialValue,
@@ -12,28 +14,29 @@ import { Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import Form from './components/form';
 
-const pokemonData = [
-  {
-    id: Math.random(),
-    name: 'pikachu',
-    type: 'eletrico',
-    hp: 10,
-    attack:  'raios e raios',
-    cost: 25,
-  },
-]
-
 function App() {
   const [
     showModal, showModalDispatch,
   ] = useReducer(modalReducer, modalInitialValue);
+  const [pokemonData, setPokemonData] = useState([]);
+
+  const getPokemons = async () => {
+    // run server on port 3000 before running client
+    const { data } = await axios.get("http://localhost:3000/pokemon");
+    console.log(data);
+    setPokemonData(data);
+  }
+
+  useEffect(() => {
+    getPokemons();
+  }, []);
 
   return (
     <div className="App">
       <ModalContext.Provider value={{ showModal, showModalDispatch }}>
         <div className="cardWrapper">
           {pokemonData.map((pokemon) => (
-            <PokemonCard pokemon={pokemon}/>
+            <PokemonCard key={`pokemon-${pokemon.id}`} pokemon={pokemon}/>
           ))}
 
           <Button 
