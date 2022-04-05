@@ -23,13 +23,12 @@ function App() {
   const getPokemons = async () => {
     // run server on port 3000 before running client
     const { data } = await axios.get("http://localhost:3000/pokemon");
-    console.log(data);
     setPokemonData(data);
   }
 
   useEffect(() => {
     getPokemons();
-  }, []);
+  }, [showModal.pokemonSelected]);
 
   return (
     <div className="App">

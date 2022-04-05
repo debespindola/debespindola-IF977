@@ -24,8 +24,8 @@ export const modalInitialValue = {
     id: '',
     name: '',
     type: '',
-    hp: null,
+    hp: '',
     attack: '',
-    cost: null,
+    cost: '',
   }
 };
